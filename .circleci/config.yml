@@ -41,4 +41,4 @@ jobs:
       - run: mvn integration-test
 notify:
   webhooks:
-    -url: https://discordapp.com/api/webhooks/335745827702177794/9uNjjYKqXZVOX6-EVF--Jeg6UwK0cH-CkGSLUujlR_8yU0Yjysq3BAyxZYL9bnLpUSeK
+    -url: https://discordapp.com/api/webhooks/335745827702177794/9uNjjYKqXZVOX6-EVF--Jeg6UwK0cH-CkGSLUujlR_8yU0Yjysq3BAyxZYL9bnLpUSeK/circleci
