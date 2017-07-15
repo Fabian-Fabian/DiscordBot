@@ -1,5 +1,6 @@
-package fabian.discord.bot;
+package fabian.discord.bot.core;
 
+import fabian.discord.bot.listener.ReadyListener;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -16,15 +17,15 @@ public class Main {
             System.exit(-1);
         }
 
-        JDA jda = null;
+        JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT)
+                .setToken(args[0])
+                .addEventListener(new ReadyListener());
+
         try {
-            jda = new JDABuilder(AccountType.BOT).setToken(args[0]).buildBlocking();
+            JDA jda = jdaBuilder.buildBlocking();
         } catch (LoginException | InterruptedException | RateLimitedException e) {
             e.printStackTrace();
             System.exit(-1);
         }
-
-        System.out.println("[INFO] Name of Bot: " + jda.getSelfUser().getName());
-
     }
 }
