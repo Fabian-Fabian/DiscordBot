@@ -5,8 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fabian</groupId>
-    <artifactId>DiscordSelfBot</artifactId>
+    <artifactId>DiscordBot</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>3.1.1_223</version>
+        </dependency>
+    </dependencies>
 
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>jcenter-bintray</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
 </project>
