@@ -10,8 +10,8 @@ import java.util.*;
 
 public class commandHandler {
 
-    private static Map<String, Command> commandContainer = new HashMap<>();
-    private static Map<Command, String> commandContainer2 = new HashMap<>();
+    private static final Map<String, Command> commandContainer = new HashMap<>();
+    private static final Map<Command, String> commandContainer2 = new HashMap<>();
 
     public static void handle(String command, MessageReceivedEvent event) {
 

@@ -1,14 +1,13 @@
 package fabian.discord.bot.util;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Properties;
 
 public class Settings {
 
-    private Properties config = new Properties();
+    private final Properties config = new Properties();
     //private ArrayList<String> configEntries = new ArrayList<>();
-    private String configFileName;
+    private final String configFileName;
 
     public String getProperty(String key) {
         this.readProperties();
