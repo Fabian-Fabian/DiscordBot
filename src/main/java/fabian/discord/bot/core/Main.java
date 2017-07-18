@@ -1,7 +1,9 @@
 package fabian.discord.bot.core;
 
 import fabian.discord.bot.commands.cmdHelp;
+import fabian.discord.bot.commands.cmdSet;
 import fabian.discord.bot.commands.cmdShortLink;
+import fabian.discord.bot.commands.cmdYoutubeSearch;
 import fabian.discord.bot.listener.ReadyListener;
 import fabian.discord.bot.listener.messageListener;
 import fabian.discord.bot.util.Statics;
@@ -16,11 +18,17 @@ class Main {
 
     public static void main(String[] args) {
 
-        if (Statics.settings.getProperty("prefix") == null)
+        if(Statics.settings.getProperty("owner-id") == null)
+            Statics.settings.setProperty("owner-id","ENTER ID HERE");
+
+        if(Statics.settings.getProperty("prefix") == null)
             Statics.settings.setProperty("prefix", "!");
 
         if(Statics.settings.getProperty("bitlyAPIKEY") == null)
             Statics.settings.setProperty("bitlyAPIKEY","ENTER VALID BITLY API KEY!");
+
+        if(Statics.settings.getProperty("googleapikey") == null)
+            Statics.settings.setProperty("googleapikey","ENTER VALID GOOGLE API KEY!");
 
         if (args.length < 1 || args[0].length() != 59) {
             System.err.println("[ERROR] Please enter a valid Discord-Bot Token as parameter!");
@@ -34,6 +42,8 @@ class Main {
 
         commandHandler.add("help", new cmdHelp());
         commandHandler.add("short", new cmdShortLink());
+        commandHandler.add("ytsearch", new cmdYoutubeSearch());
+        commandHandler.add("set",new cmdSet());
 
         try {
             //noinspection unused

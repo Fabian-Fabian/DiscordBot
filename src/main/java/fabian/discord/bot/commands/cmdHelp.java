@@ -1,6 +1,7 @@
 package fabian.discord.bot.commands;
 
 import fabian.discord.bot.core.commandHandler;
+import fabian.discord.bot.util.Statics;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -22,7 +23,7 @@ public class cmdHelp implements Command{
         help.setColor(Color.cyan);
 
         for (Command c:commands) {
-            help.addField(commandHandler.getName(c), c.help(), false);
+            help.addField(Statics.settings.getProperty("prefix") + commandHandler.getName(c), c.help(), false);
         }
 
         event.getTextChannel().sendMessage(help.build()).queue();

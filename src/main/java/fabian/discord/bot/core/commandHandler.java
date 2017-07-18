@@ -32,7 +32,7 @@ public class commandHandler {
             if (commandContainer.get(com).requirements(arg, event)) {
                 commandContainer.get(com).action(arg, event);
             } else {
-                event.getTextChannel().sendMessage(new EmbedBuilder().setTitle("Sorry!").setDescription("You don't have enought permission to do that!").build()).queue();
+                event.getTextChannel().sendMessage(new EmbedBuilder().setTitle("Sorry!").setDescription("You don't have enought permission to do that!").setColor(Color.red).build()).queue();
             }
         } else {
             event.getTextChannel().sendMessage(new EmbedBuilder().setColor(Color.red).setTitle("Error").setDescription("Error! Command " + com + " not found!").build()).queue();
