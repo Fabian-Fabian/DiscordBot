@@ -1,9 +1,6 @@
 package fabian.discord.bot.core;
 
-import fabian.discord.bot.commands.cmdHelp;
-import fabian.discord.bot.commands.cmdSet;
-import fabian.discord.bot.commands.cmdShortLink;
-import fabian.discord.bot.commands.cmdYoutubeSearch;
+import fabian.discord.bot.commands.*;
 import fabian.discord.bot.listener.ReadyListener;
 import fabian.discord.bot.listener.messageListener;
 import fabian.discord.bot.util.Statics;
@@ -44,6 +41,7 @@ class Main {
         commandHandler.add("short", new cmdShortLink());
         commandHandler.add("ytsearch", new cmdYoutubeSearch());
         commandHandler.add("set",new cmdSet());
+        commandHandler.add("gg",new cmdGG());
 
         try {
             //noinspection unused
