@@ -3,6 +3,7 @@ package fabian.discord.bot.core;
 import fabian.discord.bot.commands.*;
 import fabian.discord.bot.listener.ReadyListener;
 import fabian.discord.bot.listener.messageListener;
+import fabian.discord.bot.listener.onReactionAdd;
 import fabian.discord.bot.util.Statics;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
@@ -35,13 +36,15 @@ class Main {
         JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT)
                 .setToken(args[0])
                 .addEventListener(new ReadyListener())
-                .addEventListener(new messageListener());
+                .addEventListener(new messageListener())
+                .addEventListener(new onReactionAdd());
 
         commandHandler.add("help", new cmdHelp());
         commandHandler.add("short", new cmdShortLink());
         commandHandler.add("ytsearch", new cmdYoutubeSearch());
         commandHandler.add("set",new cmdSet());
         commandHandler.add("gg",new cmdGG());
+        commandHandler.add("translate", new cmdTranslate());
 
         try {
             //noinspection unused
